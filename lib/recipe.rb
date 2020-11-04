@@ -8,11 +8,8 @@ class Recipe
   end
 
   def add_ingredient(ingredient, qty)
-    if @ingredients_required[ingredient]
-      @ingredients_required[ingredient] += qty
-    else
-      @ingredients_required[ingredient] = qty
-    end 
+    @ingredients_required[ingredient] += qty if @ingredients_required[ingredient] ||
+    @ingredients_required[ingredient] = qty
   end
 
   def ingredients 
