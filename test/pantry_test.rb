@@ -15,4 +15,11 @@ class PantryTest < MiniTest::Test
     assert_equal ({}), @pantry.stock
   end
 
+  def test_can_check_and_restock_ingredients
+    assert_equal 0, @pantry.stock_check(@ingredient1)
+    @pantry.restock(@ingredient1, 5)
+    @pantry.restock(@ingredient1, 10)
+    assert_equal 15, @pantry.stock_check(@ingredient1)
+  end
+
 end
