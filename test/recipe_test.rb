@@ -10,7 +10,7 @@ class Test < MiniTest::Test
     @ingredient3 = Ingredient.new({name: "Ground Beef", unit: "oz", calories: 100})
     @ingredient4 = Ingredient.new({name: "Bun", unit: "g", calories: 75})
     @recipe1 = Recipe.new("Mac and Cheese")
-    @ecipe2 = Recipe.new("Cheese Burger")
+    @recipe2 = Recipe.new("Cheese Burger")
   end
 
   def test_attributes_are_instantiated
