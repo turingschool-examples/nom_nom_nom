@@ -3,7 +3,7 @@ require 'minitest/pride'
 require './lib/ingredient'
 require './lib/pantry'
 require './lib/recipe'
-require './lib/cookbook'
+require './lib/cook_book'
 
 class CookBookTest < Minitest::Test
   def test_it_exists_and_can_add_and_have_recipes
