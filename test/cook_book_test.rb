@@ -15,4 +15,13 @@ class CookBookTest < Minitest::Test
 
     assert_equal [], @cook_book.recipes
   end
+
+  def test_it_adds_recipe
+    assert_equal [], @cook_book.recipes
+
+    @cook_book.add_recipe(@recipe1)
+    @cook_book.add_recipe(@recipe2)
+
+    assert_equal [@recipe1,@recipe2], @cook_book.recipes
+  end
 end
