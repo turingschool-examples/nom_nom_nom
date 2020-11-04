@@ -21,6 +21,8 @@ class CookbookTest < Minitest::Test
     @cookbook.add_recipe(@recipe1)
     @cookbook.add_recipe(@recipe2)
     
+    assert_equal "Invalid recipe!", @cookbook.add_recipe("McMuffin")
     assert_equal [@recipe1, @recipe2], @cookbook.recipes
+    
   end
 end
