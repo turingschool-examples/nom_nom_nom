@@ -13,5 +13,4 @@ attr_reader :stock
   def restock(ingredient, amount)
     @stock_amount[ingredient] += amount
   end
-
 end
