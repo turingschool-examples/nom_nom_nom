@@ -35,4 +35,8 @@ class CookBookTest < Minitest::Test
     assert_equal ["Cheese", "Macaroni", "Ground Beef", "Bun"], @cookbook.ingredients
     assert_equal @recipe2, @cookbook.highest_calorie_meal
   end 
+
+  def test_it_can_start_with_the_date
+    assert_equal "04-22-2020", @cookbook.date
+  end
 end
