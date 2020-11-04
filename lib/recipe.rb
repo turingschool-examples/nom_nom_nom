@@ -44,10 +44,6 @@ class Recipe
         amount: "#{amount} #{ingredient.unit}"
       }
       details[:ingredients] << ingredient_deets
-      # require 'pry';binding.pry
-      details[:ingredients].sort_by! do |thing|
-        (ingredient.calories * amount)
-      end
     end
     details[:total_calories] = total_calories
     recipe_summary[:details] = details
