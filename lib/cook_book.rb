@@ -19,4 +19,10 @@ class CookBook
     ingredient_names.uniq
   end
 
+  def highest_calorie_meal
+    @recipes.max_by do |recipe|
+      recipe.total_calories
+      end
+  end
+
 end
