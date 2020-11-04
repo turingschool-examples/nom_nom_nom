@@ -17,6 +17,6 @@ attr_reader :stock
     recipe.ingredients_required.all? do |ingredient, amount|
       @stock[ingredient] >= amount
     end
-
   end
+  
 end
