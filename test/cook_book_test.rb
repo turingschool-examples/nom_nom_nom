@@ -8,8 +8,8 @@ require './lib/pantry'
 
 class CookBookTest < Minitest::Test
   def setup
-    @pantry = Pantry.new
     @cookbook = CookBook.new
+    @pantry = Pantry.new
     @recipe1 = Recipe.new("Mac and Cheese")
     @recipe2 = Recipe.new("Cheese Burger")
     @ingredient1 = Ingredient.new({name: "Cheese", unit: "C", calories: 100})
@@ -19,6 +19,6 @@ class CookBookTest < Minitest::Test
   end
 
   def test_it_exists_and_has_attributes
-    assert_instance_of CookBook, @cook_book
+    assert_instance_of CookBook, @cookbook
   end
 end
