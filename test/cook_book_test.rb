@@ -1,6 +1,6 @@
 require "minitest/autorun"
 require "minitest/pride"
-require "./lib/"
+require "./lib/cook_book"
 require "mocha/minitest"
 
 class CookBookTest < Minitest::Test
