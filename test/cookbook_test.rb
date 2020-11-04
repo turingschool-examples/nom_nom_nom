@@ -31,13 +31,14 @@ class CookBookTest < MiniTest::Test
     assert_equal [@recipe1, @recipe2], @cookbook.recipes
   end
 
-  def test_can_sum_total_calories_from_ingredients
+  def test_list_all_ingredients_in_cookbook
     @recipe1.add_ingredient(@ingredient1, 2)
     @recipe1.add_ingredient(@ingredient2, 8)
     @recipe2.add_ingredient(@ingredient1, 2)
     @recipe2.add_ingredient(@ingredient3, 4)
     @recipe2.add_ingredient(@ingredient4, 1)
-    assert_equal 440, @recipe1.total_calories
-    assert_equal 675, @recipe2.total_calories
+    @cookbook.add_recipe(@recipe1)
+    @cookbook.add_recipe(@recipe2)
+    assert_equal ["Cheese", "Macaroni", "Ground Beef", "Bun"], @cookbook.ingredients
   end
 end
