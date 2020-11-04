@@ -27,10 +27,21 @@ class CookBook
 
   def recipe_by_calorie
     breakdown = {}
-    @recipes.each do |recipe|
-      breakdown[recipe] = recipe.total_calories
+    @recipes.each do |recipe_obj|
+      breakdown[recipe_obj] = recipe_obj.total_calories
     end
     breakdown
+  end
+
+#nested iteration
+# access to ingredient obj's via recipe_obj
+# populate nested hash
+# shovel hash into array
+  def summary
+    breakdown = []
+    recipe_by_calorie.each do |recipe_obj, calories_int|
+      require "pry"; binding.pry
+    end
   end
 
 end
