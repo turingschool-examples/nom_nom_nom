@@ -11,11 +11,23 @@ class RecipeTest < Minitest::Test
     @ingredient2 = Ingredient.new({name: "Macaroni", unit: "oz", calories: 30})
   end
 
-  def test_it_exists	
-    ingredients_result = {}
-
+  def test_it_exists_and_has_attributes
     assert_instance_of Recipe, @recipe1
     assert_equal "Mac and Cheese", @recipe1.name
-    assert_equal ingredients_result, @recipe1.ingredients_required
+    assert_equal ({}), @recipe1.ingredients_required
+  end
+
+  def test_add_ingredients
+    required = {
+      @ingredient1 => 6,
+      @ingredient2 => 8
+    }
+    
+    @recipe1.add_ingredients(@ingredient1, 2)
+    @recipe1.add_ingredients(@ingredient1, 4)
+    @recipe1.add_ingredients(@ingredient2, 8)
+
+
+    assert_equal required, @recipe1.ingredients_required
   end
 end
