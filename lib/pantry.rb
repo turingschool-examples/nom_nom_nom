@@ -14,7 +14,6 @@ class Pantry
   def stock_check(ingredient)
     if @ingredients.include?(ingredient)
       @ingredients
-      require "pry"; binding.pry
     else
       0
     end
