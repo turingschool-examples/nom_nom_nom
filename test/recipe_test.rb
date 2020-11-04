@@ -9,13 +9,13 @@ class RecipeTest < Minitest::Test
 
     @ingredient1 = mock()
     @ingredient1.stubs("name").returns("Cheese")
-    @ingredient1.stubs("unit").returns("oz")
-    @ingredient1.stubs("calories").returns("50")
+    @ingredient1.stubs("unit").returns("C")
+    @ingredient1.stubs("calories").returns("100") #*2
 
     @ingredient2 = mock()
     @ingredient2.stubs("name").returns("Macaroni")
     @ingredient2.stubs("unit").returns("oz")
-    @ingredient2.stubs("calories").returns("200")
+    @ingredient2.stubs("calories").returns("30") #*8
   end
 
   def test_it_exists_and_has_attributes
@@ -45,4 +45,14 @@ class RecipeTest < Minitest::Test
 
     assert_equal [@ingredient1,@ingredient2], @recipe.ingredients
   end
+<<<<<<< HEAD
+=======
+
+  def test_it_total_calories
+    assert_equal 0, @recipe.total_calories
+    @recipe.add_ingredient(@ingredient1, 2)
+    @recipe.add_ingredient(@ingredient2, 8)
+    assert_equal 440, @recipe.total_calories
+  end
+>>>>>>> iteration_3
 end
