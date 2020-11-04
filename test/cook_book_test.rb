@@ -9,8 +9,8 @@ class CookBookTest < Minitest::Test
   def setup
     @cook_book = CookBook.new
 
-    @recipe1 = mock()
-    @recipe2 = mock()
+    @recipe1 = Recipe.new("Mac and Cheese")
+    @recipe2 = Recipe.new("Cheeseburger")
 
     @ingredient1 = mock()
     @ingredient1.stubs("name").returns("Cheese")
