@@ -3,6 +3,7 @@ require './lib/ingredient'
 require './lib/pantry'
 require './lib/recipe'
 require './lib/cook_book'
+require 'date'
 
 class IntegrationTest < MiniTest::Test
 

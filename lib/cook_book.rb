@@ -22,4 +22,8 @@ class CookBook
             recipe.total_calories
         end
     end
+
+    def date
+        DateTime.now.strftime("%m-%d-%Y")
+    end
 end
