@@ -29,6 +29,7 @@ class RecipeTest < Minitest::Test
 
 
     assert_equal required, @recipe1.ingredients_required
+    assert_equal "Invalid ingredient!", @recipe1.add_ingredients("Paprika", 1)
   end
 
   def test_recipe_ingredients
