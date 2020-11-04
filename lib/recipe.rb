@@ -1,6 +1,7 @@
 class Recipe
   attr_reader :name,
               :ingredients_required
+              
    
   def initialize(name)
     @name = name 
@@ -10,4 +11,10 @@ class Recipe
   def add_ingredient(ingredients, quantity)
     @ingredients_required[ingredients] += quantity
   end
+
+  def ingredients
+    @ingredients_required.map do |ingredient, quantity|
+      ingredient
+    end.flatten
+  end 
 end
