@@ -1,5 +1,5 @@
 class Recipe
-  attr_reader :name
+  attr_reader :name, :needed
 
   def initialize(name)
     @name = name
@@ -17,4 +17,12 @@ class Recipe
   def ingredients
     @needed.keys
   end
+
+  def total_calories
+    @needed.sum do |need, quantity|
+      need.calories * quantity
+    end
+  end
+
+
 end
