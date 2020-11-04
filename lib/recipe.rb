@@ -9,5 +9,9 @@ class Recipe
   def add_ingredient(ingredient_obj, quantity_req_int)
     @ingredients_required[ingredient_obj] += quantity_req_int
   end
-  
+
+  def ingredients
+    @ingredients_required.keys
+  end
+
 end
