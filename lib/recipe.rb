@@ -4,7 +4,6 @@ class Recipe
     def initialize(name)
         @name = name
         @ingredients_required = Hash.new(0)
-        #{ingedient: qty}
     end
 
     def add_ingredient(ingredient, qty)
@@ -20,5 +19,4 @@ class Recipe
             ingredient.calories * @ingredients_required[ingredient]
         end
     end
-    
 end

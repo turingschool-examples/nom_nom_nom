@@ -22,5 +22,4 @@ class CookBookTest < MiniTest::Test
         expected = [@recipe1, @recipe2]
         assert_equal expected, @cookbook.recipes
     end
-
 end

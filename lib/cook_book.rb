@@ -22,5 +22,4 @@ class CookBook
             recipe.total_calories
         end
     end
-    
 end
