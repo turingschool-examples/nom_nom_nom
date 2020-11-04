@@ -39,6 +39,9 @@ class CookbookTest < Minitest::Test
   end
 
   def test_highest_calorie_meal
+    @cookbook.add_recipe(@recipe1)
+    @cookbook.add_recipe(@recipe2)
+    
     assert_equal @recipe2, @cookbook.highest_calorie_meal
   end
 end
