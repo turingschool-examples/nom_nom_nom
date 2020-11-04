@@ -18,6 +18,13 @@ class CookBookTest < Minitest:: Test
   end
 
   def test_it_exists
-    assert_instance_of Cookbook, @cookbook
+    assert_instance_of CookBook, @cookbook
   end
-end 
+
+  def test_we_can_add_recipes
+    assert_equal [], @cookbook.recipes
+    @cookbook.add_recipe(@recipe1)
+    @cookbook.add_recipe(@recipe2)
+    assert_equal [@recipe1, @recipe2], @cookbook.recipes
+  end
+end
