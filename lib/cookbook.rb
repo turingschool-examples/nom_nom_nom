@@ -1,3 +1,5 @@
 class CookBook
-
-end 
+  def initialize
+    @recipes = []
+  end
+end
