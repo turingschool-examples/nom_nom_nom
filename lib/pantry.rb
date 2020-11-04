@@ -21,6 +21,15 @@ class Pantry
     else
       "Invalid ingredient!"
     end
+  end
 
+  def enough_ingredients_for?(recipe)
+    recipe.ingredients_required.all? do |ingredient, amount|
+      if stock.key?(ingredient)
+        stock[ingredient] >= amount
+      else
+        false
+      end
+    end
   end
 end
