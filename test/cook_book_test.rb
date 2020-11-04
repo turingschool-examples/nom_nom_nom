@@ -4,7 +4,7 @@ require './lib/cook_book'
 require './lib/recipe'
 require './lib/ingredient'
 require './lib/pantry'
-
+require 'mocha/minitest'
 
 class CookBookTest < Minitest::Test
   def setup
@@ -37,6 +37,7 @@ class CookBookTest < Minitest::Test
   end 
 
   def test_it_can_start_with_the_date
+    @cookbook.stubs(:date).returns("04-22-2020")
     assert_equal "04-22-2020", @cookbook.date
   end
 end

@@ -1,8 +1,12 @@
+require 'date'
+
 class CookBook
-  attr_reader :recipes
+  attr_reader :recipes,
+              :date
 
   def initialize
    @recipes = []
+   @date = Date.today
   end
 
   def add_recipe(recipe)
@@ -22,6 +26,4 @@ class CookBook
       recipe.total_calories
     end
   end
-
-
 end
