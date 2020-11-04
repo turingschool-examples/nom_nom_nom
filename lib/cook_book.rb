@@ -1,5 +1,5 @@
 class CookBook
-  attr_reader :recipes
+  attr_reader :recipes, :date
 
   def initialize
     @recipes = []
@@ -19,5 +19,17 @@ class CookBook
     @recipes.max_by do |recipe|
       recipe.total_calories
     end
+  end
+
+  def date
+    @date = Time.new
+    values = @date.to_a
+    if values[4].to_s.length == 1
+      values[4] = "0" + values[4].to_s
+    end
+    if values[3].to_s.length == 1
+      values[3] = "0" + values[3].to_s
+    end
+    "#{values[3]}-#{values[4]}-#{values[5]}"
   end
 end
