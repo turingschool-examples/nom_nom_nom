@@ -37,7 +37,17 @@ class RecipeTest < Minitest::Test
     @recipe1.add_ingredient(@ingredient1, 2)
     @recipe1.add_ingredient(@ingredient1, 4)
     @recipe1.add_ingredient(@ingredient2, 8)
-    assert_equal [@ingredient1, @ingredient2], @recipe1.ingredients 
+    assert_equal [@ingredient1, @ingredient2], @recipe1.ingredients
   end
 
+  def test_we_can_find_total_calories
+    @recipe1.add_ingredient(@ingredient1, 2)
+    @recipe1.add_ingredient(@ingredient1, 4)
+    @recipe1.add_ingredient(@ingredient2, 8)
+    @recipe2.add_ingredient(@ingredient1, 2)
+    @recipe2.add_ingredient(@ingredient3, 4)
+    @recipe2.add_ingredient(@ingredient4, 1)
+    assert_equal 440, @recipe.total_calories
+    assert_equal 675, @recipe2.total_calories
+  end 
 end
