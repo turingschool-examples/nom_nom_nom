@@ -15,8 +15,8 @@ class RecipeTest < MiniTest::Test
     @ingredient2 = Ingredient.new({name: "Macaroni", unit: "oz", calories: 30})
     @ingredient3 = Ingredient.new({name: "Ground Beef", unit: "oz", calories: 100})
     @ingredient4 = Ingredient.new({name: "Bun", unit: "g", calories: 75})
-    @recipe1 = Recipe.new("Taylor Swift")
-    @recipe2 = Recipe.new("Not The Greatest")
+    @recipe1 = Recipe.new("Mac and Cheese")
+    @recipe2 = Recipe.new("Cheese Burger")
   end
 
   def test_cook_book_recipes

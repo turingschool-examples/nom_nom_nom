@@ -14,8 +14,8 @@ class Pantry
   end
 
   def enough_ingredients_for?(recipe)
-    @stock.all? do |ingredient, value|
-      recipe.needed[ingredient] > value
+    @stock.none? do |ingredient, value|
+      recipe.needed[ingredient] < value
     end
   end
 
