@@ -3,7 +3,6 @@ require 'minitest/pride'
 require './lib/ingredient'
 require './lib/pantry'
 require './lib/recipe'
-# require './lib/cook_book'
 
 class RecipeTest < Minitest::Test
   def test_it_exists
