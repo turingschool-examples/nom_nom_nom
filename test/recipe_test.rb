@@ -27,4 +27,15 @@ class RecipeTest < Minitest::Test
     expected2 = [ingredient1, ingredient2]
     assert_equal expected2, recipe1.ingredients
   end
+
+  def test_total_calories
+    ingredient1 = Ingredient.new({name: "Cheese", unit: "C", calories: 100})
+    ingredient2 = Ingredient.new({name: "Macaroni", unit: "oz", calories: 30})
+    recipe1 = Recipe.new("Mac and Cheese")
+
+    recipe1.add_ingredient(ingredient1, 2)
+    recipe1.add_ingredient(ingredient2, 8)
+
+    assert_equal 440, recipe1.total_calories
+  end
 end
