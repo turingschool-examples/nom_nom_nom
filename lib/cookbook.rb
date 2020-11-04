@@ -3,6 +3,7 @@ class CookBook
 
   def initialize
     @recipes = []
+    @ingredients = []
   end
 
   def add_recipe(recipe)

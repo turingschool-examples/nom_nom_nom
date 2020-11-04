@@ -1,10 +1,19 @@
 class Recipe
-  attr_reader :name, :ingredients_required
+  attr_reader :name, :ingredients_required, :total_calories
 
   def initialize(name)
     @name = name
     @ingredients_required = {}
     @ingredients = []
+    @total_calories = 0
+  end
+
+  def calculate_calories(ingredient, amount)
+    @total_calories += (ingredient.calories * amount)
+  end
+
+  def store_required_ingredients(ingredient)
+    @ingredients << ingredient
   end
 
   def add_ingredient(ingredient, amount)
@@ -16,7 +25,8 @@ class Recipe
         old + new
       end
     end
-    @ingredients << ingredient
+    calculate_calories(ingredient, amount)
+    store_required_ingredients(ingredient)
   end
 
   def ingredients
