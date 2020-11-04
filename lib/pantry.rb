@@ -9,6 +9,11 @@ class Pantry
     @stock[item]
   end
 
+  def restock(item, quantity)
+    @stock[item] += quantity
+  end
+
+
 
 
 end
