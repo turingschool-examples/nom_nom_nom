@@ -16,7 +16,7 @@ class Test < MiniTest::Test
     assert_equal ({}), @recipe1.ingredients_required
   end
 
-  def test_
+  def test_can_add_ingredient_and_check_required
     @recipe1.add_ingredient(@ingredient1, 2)
     @recipe1.add_ingredient(@ingredient1, 4)
     @recipe1.add_ingredient(@ingredient2, 8)
