@@ -34,21 +34,27 @@ class CookBookTest < Minitest::Test
 
     assert_equal ["Cheese", "Macaroni", "Ground Beef", "Bun"], @cookbook.ingredients
     assert_equal @recipe2, @cookbook.highest_calorie_meal
-# @pantry.restock(ingredient1, 5)
+  end 
 
-# @pantry.restock(ingredient1, 10)
+  def test_it_can_find_the_highest_calorie_meal
+    @recipe1.add_ingredient(@ingredient1, 2)
+    @recipe1.add_ingredient(@ingredient2, 8)
+    @recipe2.add_ingredient(@ingredient1, 2)
+    @recipe2.add_ingredient(@ingredient3, 4)
+    @recipe2.add_ingredient(@ingredient4, 1)
+    @cookbook.add_recipe(@recipe1)
+    @cookbook.add_recipe(@recipe2)
+    @pantry.restock(@ingredient1, 5)
+    @pantry.restock(@ingredient1, 10)
 
-# @pantry.enough_ingredients_for?(recipe1)
-# # => false
+    assert_equal false, @pantry.enough_ingredients_for?(@recipe1)
+    
+    @pantry.restock(@ingredient2, 7)
 
-# @pantry.restock(ingredient2, 7)
+    assert_equal false, @pantry.enough_ingredients_for?(@recipe1)
+    
+    @pantry.restock(@ingredient2, 1)
 
-# @pantry.enough_ingredients_for?(recipe1)
-# # => false
-
-# @pantry.restock(ingredient2, 1)
-
-# @pantry.enough_ingredients_for?(recipe1)
-# # => true
+    assert_equal true, @pantry.enough_ingredients_for?(@recipe1)
   end
 end
