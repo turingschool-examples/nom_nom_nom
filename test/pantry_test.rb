@@ -15,6 +15,10 @@ class PantryTest < Minitest::Test
     @ingredient2.stubs("name").returns("Macaroni")
     @ingredient2.stubs("unit").returns("oz")
     @ingredient2.stubs("calories").returns("200")
+
+    @recipe = Recipe.new("Mac and Cheese")
+
+
   end
 
   def test_it_exists_and_has_attribute
@@ -38,5 +42,21 @@ class PantryTest < Minitest::Test
 
     assert_equal 12, @pantry.stock_check(@ingredient1)
     assert_equal 2, @pantry.stock_check(@ingredient2)
+  end
+
+  def test_enough_ingredients
+    @recipe.add_ingredient(@ingredient1,8)
+    @recipe.add_ingredient(@ingredient2,2)
+
+    assert_equal false, @pantry.enough_ingredients?(@recipe)
+
+    @pantry.restock(@ingredient1, 7)
+    @pantry.restock(@ingredient2, 2)
+
+    assert_equal false, @pantry.enough_ingredients?(@recipe)
+
+    @pantry.restock(@ingredient1, 1)
+
+    assert_equal true, @pantry.enough_ingredients?(@recipe)
   end
 end
