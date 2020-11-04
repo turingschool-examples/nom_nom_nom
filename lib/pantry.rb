@@ -16,11 +16,10 @@ class Pantry
   end
 
   def enough_ingredients_for?(recipe)
-    check_array = recipe.ingredients_required.map do |req_item, req_amount|
-      @stock.map do |ingredient, amount|
+    recipe.ingredients_required.all? do |req_item, req_amount|
+      @stock.all? do |ingredient, amount|
         stock_check(req_item) >= req_amount
       end
     end
-    check_array.flatten.none?(false)
   end
 end
