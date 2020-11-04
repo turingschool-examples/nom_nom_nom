@@ -78,4 +78,21 @@ class CookBookTest < Minitest::Test
     time.stubs("year").returns(2020)
     assert_equal "11-04-2020", @cook_book.format_time(time)
   end
+#[{:name=>"Mac and Cheese",
+  #:details=>{:ingredients=>[
+    #{:ingredient=>"Macaroni", :amount=>"8 oz"},
+    #{:ingredient=>"Cheese", :amount=>"2 C"}
+  #],
+  #:total_calories=>440}
+
+  def summary
+    @cook_book.add_recipe(@recipe1)
+    expected = [{:name=>"Mac and Cheese",
+      :details=>{:ingredients=>[
+        {:ingredient=>"Macaroni", :amount=>"8 oz"},
+        {:ingredient=>"Cheese", :amount=>"2 C"}
+      ],
+      :total_calories=>440}}]
+      assert_equal expected, @cook_book.summary
+  end
 end
