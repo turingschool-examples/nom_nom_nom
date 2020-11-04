@@ -30,4 +30,30 @@ class CookBook
     year = time.year.to_s
     month + "-" + day + "-" + year
   end
+
+  def summary
+    #[{:name=>"Mac and Cheese",
+      #:details=>{:ingredients=>[
+        #{:ingredient=>"Macaroni", :amount=>"8 oz"},
+        #{:ingredient=>"Cheese", :amount=>"2 C"}
+      #],
+      #:total_calories=>440}
+    @recipes.each do |recipe|
+      {
+        name: recipe.name,
+        total_calories: recipe.total_calories,
+        detais: get_details(recipe)
+      }
+    end
+  end
+
+  def get_details(recipe)
+    return_arr = []
+    recipe.ingredients_required.each do |ingredient,amount|
+      return_arr << {
+        ingredient: ingredient,
+        amount: amount
+      }
+    end
+  end
 end
