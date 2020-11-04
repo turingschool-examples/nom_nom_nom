@@ -17,4 +17,10 @@ class Recipe
       ingredient
     end.flatten
   end 
+
+  def total_calories
+    @ingredients_required.sum do |ingredient, quantity|
+      ingredient.calories * quantity
+    end
+  end
 end
