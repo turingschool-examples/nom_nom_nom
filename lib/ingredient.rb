@@ -1,3 +1,4 @@
+
 class Ingredient
   # attr_reader
 
