@@ -36,8 +36,45 @@ class CookBookTest < Minitest::Test
     assert_equal @recipe2, @cookbook.highest_calorie_meal
   end 
 
+  # Iteration 4
+
   def test_it_can_start_with_the_date
     @cookbook.stubs(:date).returns("04-22-2020")
     assert_equal "04-22-2020", @cookbook.date
+  end
+
+  # For the summary, ingredients are listed in order of calories. This is the 
+  # amount of calories that ingredient contributes to the total calories of the 
+  # recipe, not the amount of calories per single unit of the ingredient.
+
+  def test_it_can_find_the_summary
+    @recipe1.add_ingredient(@ingredient1, 2)
+    @recipe1.add_ingredient(@ingredient2, 8)
+    @recipe2.add_ingredient(@ingredient3, 4)
+    @recipe2.add_ingredient(@ingredient4, 100)
+    @cookbook.add_recipe(@recipe1)
+    @cookbook.add_recipe(@recipe2)
+
+    expected = [{
+                  :name=>"Mac and Cheese", 
+                  :details=>{:ingredients=>[{
+                                            :ingredient=>"Macaroni", 
+                                            :amount=>"8 oz"}, 
+                                            {
+                                              :ingredient=>"Cheese", 
+                                              :amount=>"2 C"}],
+                                              :total_calories=>440
+                                            }},
+               {
+                  :name=>"Burger", 
+                  :details=>{:ingredients=>[{
+                                            :ingredient=>"Ground Beef", 
+                                            :amount=>"4 oz"},
+                                             {
+                                              :ingredient=>"Bun", 
+                                              :amount=>"100 g"}], 
+                                              :total_calories=>500
+                                            }}]
+    assert_equal expected = @cookbook.summary
   end
 end
