@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require './lib/cookbook'
+require './lib/cook_book'
 require './lib/recipe'
 require './lib/ingredient'
 
