@@ -52,4 +52,21 @@ class CookBookTest < MiniTest::Test
     @cookbook.add_recipe(@recipe2)
     assert_equal @recipe2, @cookbook.highest_calorie_meal
   end
+
+  def test_can_check_if_pantry_has_enough_ingredient_for_recipe
+    @recipe1.add_ingredient(@ingredient1, 2)
+    @recipe1.add_ingredient(@ingredient2, 8)
+    @recipe2.add_ingredient(@ingredient1, 2)
+    @recipe2.add_ingredient(@ingredient3, 4)
+    @recipe2.add_ingredient(@ingredient4, 1)
+    @cookbook.add_recipe(@recipe1)
+    @cookbook.add_recipe(@recipe2)
+    @pantry.restock(@ingredient1, 5)
+    @pantry.restock(@ingredient1, 10)
+    assert_equal false, @pantry.enough_ingredients_for?(@recipe1)
+    @pantry.restock(@ingredient2, 7)
+    assert_equal false, @pantry.enough_ingredients_for?(@recipe1)
+    @pantry.restock(@ingredient2, 1)
+    assert_equal true, @pantry.enough_ingredients_for?(@recipe1)
+  end
 end
