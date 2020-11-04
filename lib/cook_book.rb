@@ -26,4 +26,24 @@ class CookBook
       recipe.total_calories
     end
   end
+
+  def summary
+    breakdown = {}
+    @recipes.each do |recipe|
+      recipe.ingredients_required.each do |ingredient, qty|
+        breakdown[:name] = recipe.name
+        breakdown[:details] = [{
+                                :ingredient     = ingredient.name,
+                                :amount         = "#{qty} #{ingredient.unit}"
+                               },
+                              {
+                                :ingredient     = ingredient.name, 
+                                :amount         = "#{qty} #{ingredient.unit}",
+                                :total_calories = recipe.total_calories
+                              }]
+                              require 'pry'; binding.pry
+      end 
+    end
+    breakdown
+  end
 end
