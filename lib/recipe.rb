@@ -6,4 +6,12 @@ class Recipe
     @name = name
     @ingredients_required = {}
   end
+
+  def add_ingredients(ingredient, amount)
+    if ingredients_required.key?(ingredient)
+      ingredients_required[ingredient] += amount
+    elsif ingredient.class == Ingredient
+      ingredients_required[ingredient] = amount
+    end
+  end
 end
