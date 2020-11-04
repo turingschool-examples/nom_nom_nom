@@ -57,4 +57,5 @@ class RecipeTest < Minitest::Test
     assert_equal 675, recipe2.total_calories
   end
 
+  
 end
