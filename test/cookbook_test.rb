@@ -1,7 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/ingredient'
-require './lib/pantry'
 require './lib/recipe'
 require './lib/cookbook'
 
@@ -23,7 +22,7 @@ class CookBookTest < Minitest::Test
     @cookbook.add_recipe(@recipe1)
     @cookbook.add_recipe(@recipe2)
 
-    assert_equal [@recipe1, @recipe2], @cookbook.recipes 
+    assert_equal [@recipe1, @recipe2], @cookbook.recipes
   end
 
 end
