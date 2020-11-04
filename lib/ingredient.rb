@@ -8,5 +8,4 @@ class Ingredient
     @unit = info[:unit]
     @calories = info[:calories]
   end
-
 end
