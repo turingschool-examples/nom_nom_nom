@@ -20,7 +20,6 @@ class PantryTest < Minitest::Test
   end
 
   def test_restock
-    skip
     @pantry.restock(@ingredient1, 5)
     @pantry.restock(@ingredient1, 10)
 
