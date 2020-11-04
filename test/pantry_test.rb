@@ -4,6 +4,7 @@ require './lib/ingredient'
 require './lib/pantry'
 
 class PantryTest < Minitest::Test
+  # Iteration 1
   def setup
     @pantry = Pantry.new
     @ingredient1 = Ingredient.new({name: "Cheese", unit: "oz", calories: 50})
