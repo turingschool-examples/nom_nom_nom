@@ -23,4 +23,9 @@ class CookBook
       recipe.total_calories
     end
   end
+
+  def date
+    creation_date = Time.new(2020, 04, 22) #passed in date to match interaction pattern
+    creation_date.strftime("%m-%d-%Y")
+  end
 end

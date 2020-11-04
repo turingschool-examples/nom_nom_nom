@@ -69,4 +69,8 @@ class CookBookTest < MiniTest::Test
     @pantry.restock(@ingredient2, 1)
     assert_equal true, @pantry.enough_ingredients_for?(@recipe1)
   end
+
+  def test_cookbook_date_creation
+    assert_equal "04-22-2020", @cookbook.date
+  end
 end
