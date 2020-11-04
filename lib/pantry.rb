@@ -21,4 +21,10 @@ class Pantry
             @stock[ingredient]
         end
     end
+
+    def enough_ingredients_for?(recipe)
+        @stock.all? do |ingredient|
+            ingredient[1] >= recipe.ingredients_required[ingredient[0]]
+        end
+    end
 end

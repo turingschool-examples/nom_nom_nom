@@ -58,8 +58,7 @@ class RecipeTest < Minitest::Test
         assert_equal expected2, @recipe1.ingredients
     end
 
-    def test_new
-        skip
+    def test_total_calories
         @recipe1.add_ingredient(@ingredient1, 2)
         @recipe1.add_ingredient(@ingredient2, 8)
         @recipe2.add_ingredient(@ingredient1, 2)
@@ -67,7 +66,6 @@ class RecipeTest < Minitest::Test
         @recipe2.add_ingredient(@ingredient4, 1)
 
         assert_equal 440, @recipe1.total_calories
-        assert_equal 675, @recipe1.total_calories
+        assert_equal 675, @recipe2.total_calories
     end
-
 end

@@ -14,11 +14,13 @@ class Recipe
     def add_ingredient(ingredient, qty)
         @ingredients_required[ingredient] += qty
     end
-    # `total_calories` method should 
-    # sum the calories of each ingredient.
-    #  The calories for each ingredient
-    #   can be calculated by multiplying
-    #    the `calories` attribute of the 
-    #    Ingredient by the amount of the 
-    #    ingredient required for the recipe.
+
+    def total_calories
+        total_cal = 0
+        @ingredients_required.each do |ingredient|
+            cals = ingredient[0].calories * @ingredients_required[ingredient[0]]
+            total_cal += cals
+        end
+        total_cal
+    end
 end

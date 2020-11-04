@@ -71,15 +71,12 @@ class PantryTest < Minitest::Test
         assert_equal 7, @pantry.stock_check(@ingredientB)
     end
 
-    def new_test
-        skip
+    def test_it_has_enough_ingredients
         @recipe1.add_ingredient(@ingredient1, 2)
         @recipe1.add_ingredient(@ingredient2, 8)
         @recipe2.add_ingredient(@ingredient1, 2)
         @recipe2.add_ingredient(@ingredient3, 4)
         @recipe2.add_ingredient(@ingredient4, 1)
-        # @cookbook.add_recipe(@recipe1)
-        # @cookbook.add_recipe(@recipe2)
         @pantry.restock(@ingredient1, 5)
         @pantry.restock(@ingredient1, 10)
 
