@@ -28,4 +28,17 @@ class IntegrationTest < MiniTest::Test
         assert_equal 675, @recipe2.total_calories
     end
 
+    def test_it_can_list_all_ingredients_from_recipes
+        @recipe1.add_ingredient(@ingredient1, 2)
+        @recipe1.add_ingredient(@ingredient2, 8)
+        @recipe2.add_ingredient(@ingredient1, 2)
+        @recipe2.add_ingredient(@ingredient3, 4)
+        @recipe2.add_ingredient(@ingredient4, 1)
+        @cookbook.add_recipe(@recipe1)
+        @cookbook.add_recipe(@recipe2)
+
+        expected = ["Cheese", "Macaroni", "Ground Beef", "Bun"]
+        assert_equal expected, @cookbook.ingredients
+    end
+
 end
