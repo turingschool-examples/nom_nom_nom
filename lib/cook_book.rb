@@ -23,4 +23,8 @@ attr_reader :recipes
     end
   end
 
+  def date
+    Time.now.strftime("%m-%d-%Y")
+  end
+
 end
