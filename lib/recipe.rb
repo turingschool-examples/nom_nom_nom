@@ -3,5 +3,9 @@ class Recipe
 
   def initialize(name)
     @name = name
+    @ingredients_required = {}
+  end
+
+  def add_ingredient
   end
 end
