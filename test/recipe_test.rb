@@ -27,7 +27,6 @@ class RecipeTest < Minitest::Test
   end
 
   def test_ingredients
-    skip
     @recipe1.add_ingredient(@ingredient1, 2)
     @recipe1.add_ingredient(@ingredient1, 4)
     @recipe1.add_ingredient(@ingredient2, 8)
