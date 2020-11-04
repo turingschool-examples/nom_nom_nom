@@ -25,4 +25,12 @@ class CookBook
       end
   end
 
+  def recipe_by_calorie
+    breakdown = {}
+    @recipes.each do |recipe|
+      breakdown[recipe] = recipe.total_calories
+    end
+    breakdown
+  end
+
 end
