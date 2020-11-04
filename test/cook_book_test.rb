@@ -44,6 +44,7 @@ class CookBookTest < Minitest::Test
     assert_instance_of CookBook, @cook_book
 
     assert_equal [], @cook_book.recipes
+    assert_equal "11-04-2020", @cook_book.date #don't test this tommorow
   end
 
   def test_it_adds_recipe
@@ -68,5 +69,13 @@ class CookBookTest < Minitest::Test
     @cook_book.add_recipe(@recipe1)
     @cook_book.add_recipe(@recipe2)
     assert_equal @recipe2, @cook_book.highest_calorie_meal
+  end
+
+  def test_format_time
+    time = mock()
+    time.stubs("day").returns(4)
+    time.stubs("month").returns(11)
+    time.stubs("year").returns(2020)
+    assert_equal "11-04-2020", @cook_book.format_time(time)
   end
 end
