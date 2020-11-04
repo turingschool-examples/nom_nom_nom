@@ -22,4 +22,8 @@ class CookBook
       recipe.total_calories
     end
   end
+
+  def enough_ingredients_for?(recipe)
+    require 'pry'; binding.pry
+  end
 end
