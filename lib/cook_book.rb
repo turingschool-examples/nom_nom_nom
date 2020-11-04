@@ -32,4 +32,10 @@ class CookBook
     end
     "#{values[3]}-#{values[4]}-#{values[5]}"
   end
+
+  def summary
+    @recipes.map do |recipe|
+      recipe.summary
+    end
+  end
 end

@@ -31,4 +31,26 @@ class Recipe
       ingredient.name
     end
   end
+
+  def summary
+    # So close, but my eyes are crossing. shouldve started with many methods.
+    recipe_summary = {}
+    recipe_summary[:name] = @name
+    details = {}
+    details[:ingredients] = []
+    ingredients_required.each_pair do |ingredient, amount|
+      ingredient_deets = {
+        ingredient: ingredient.name,
+        amount: "#{amount} #{ingredient.unit}"
+      }
+      details[:ingredients] << ingredient_deets
+      # require 'pry';binding.pry
+      details[:ingredients].sort_by! do |thing|
+        (ingredient.calories * amount)
+      end
+    end
+    details[:total_calories] = total_calories
+    recipe_summary[:details] = details
+    recipe_summary
+  end
 end
