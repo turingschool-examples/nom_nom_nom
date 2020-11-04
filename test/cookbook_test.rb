@@ -27,4 +27,14 @@ class CookBookTest < Minitest:: Test
     @cookbook.add_recipe(@recipe2)
     assert_equal [@recipe1, @recipe2], @cookbook.recipes
   end
+
+  def test_ingredients_returns_array
+    @cookbook.add_recipe(@recipe1)
+    @cookbook.add_recipe(@recipe2)
+    @recipe1.add_ingredient(@ingredient1,2)
+    @recipe1.add_ingredient(@ingredient2,8)
+    @recipe1.add_ingredient(@ingredient3, 4)
+    @recipe1.add_ingredient(@ingredient4, 1)
+    assert_equal ["Cheese", "Macaroni", "Ground Beer", "Bun"], @cookbook.ingredients
+  end
 end

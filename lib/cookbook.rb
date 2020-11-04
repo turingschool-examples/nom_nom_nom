@@ -6,5 +6,12 @@ class CookBook
 
   def add_recipe(recipe)
     @recipes << recipe
-  end 
+  end
+
+  def ingredients
+    ingredients = []
+    @recipes.each do |ingredient|
+    ingredients <<  ingredient.name[ingredient] 
+    end
+  end
 end
