@@ -1,5 +1,5 @@
 class CookBook
-  attr_reader :recipes, :date
+  attr_reader :recipes, :date_made
 
   def initialize
     @recipes = []
@@ -22,8 +22,8 @@ class CookBook
   end
 
   def date
-    @date = Time.new
-    values = @date.to_a
+    @date_made = Time.new
+    values = @date_made.to_a
     if values[4].to_s.length == 1
       values[4] = "0" + values[4].to_s
     end
