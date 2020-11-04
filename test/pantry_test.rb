@@ -50,7 +50,7 @@ class PantryTest < Minitest::Test
 
     @pantry.restock(@ingredient2, 1)
 
-    assert_equal true, @pantry.enough_ingredients_for?(@recipe1)
+    assert_equal true, @pantry.enough_ingredients_for?(recipe1)
   end
 
 end

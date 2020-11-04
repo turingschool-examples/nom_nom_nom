@@ -12,4 +12,11 @@ attr_reader :stock
   def restock(ingredient, amount)
     @stock[ingredient] += amount
   end
+
+  def enough_ingredients_for?(recipe)
+    recipe.ingredients_required.all? do |ingredient, amount|
+      @stock[ingredient] >= amount
+    end
+
+  end
 end
