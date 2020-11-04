@@ -12,4 +12,15 @@ class Pantry
       0
     end
   end
+
+  def restock(ingredient, amount)
+    if stock.key?(ingredient)
+      stock[ingredient] += amount
+    elsif ingredient.class == Ingredient
+      stock[ingredient] = amount
+    else
+      "Invalid ingredient!"
+    end
+
+  end
 end
