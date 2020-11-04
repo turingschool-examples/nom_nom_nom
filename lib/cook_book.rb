@@ -25,4 +25,19 @@ attr_reader :recipes,
     end
   end
 
+  def ingredients_details
+    breakdown = Hash.new
+    @recipes.each do |recipe|
+      recipe.ingredients_required.each do |ingredient, amount|
+      breakdown[:ingredient] = ingredient.name
+      breakdown[:amount] = "#{amount}#{ingredient.unit}"
+      end
+    end
+    breakdown
+  end
+
+  def summary
+
+  end
+
 end
