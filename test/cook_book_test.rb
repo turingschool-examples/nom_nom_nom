@@ -9,7 +9,7 @@ class CookBookTest < Minitest::Test
   def setup
     @cookbook = CookBook.new
     @recipe1 = Recipe.new("Mac and Cheese")
-    @recipe2 = Recipe.new("Cheese Burger")
+    @recipe2 = Recipe.new("Burger")
     @ingredient1 = Ingredient.new({name: "Cheese", unit: "C", calories: 100})
     @ingredient2 = Ingredient.new({name: "Macaroni", unit: "oz", calories: 30})
     @recipe1.add_ingredient(@ingredient1, 2)
@@ -49,6 +49,8 @@ class CookBookTest < Minitest::Test
   end
 
   def test_it_returns_summary
+    @cookbook.add_recipe(@recipe1)
+    @cookbook.add_recipe(@recipe2)
     expected =  [
                   {:name => "Mac and Cheese",
                    :details =>
@@ -61,7 +63,6 @@ class CookBookTest < Minitest::Test
                     {:ingredient=>"Bun", :amount=>"100 g"}],
                    :total_calories=>500}}
                  ]
-
-   assert_equal expected, @cookbook.summary
+    assert_equal expected, @cookbook.summary
   end
 end
