@@ -12,10 +12,11 @@ class RecipeTest < Minitest::Test
 
   def test_it_exists_and_has_attributes
     assert_instance_of Recipe, @recipe1
-    assert_equal "Mac and Cheese", @recipe1
+    assert_equal "Mac and Cheese", @recipe1.name
   end
 
   def test_ingredients_required
+    skip
     assert_equal ({}), @recipe1.ingredients_required
 
     @recipe1.add_ingredient(@ingredient1, 2)
@@ -27,6 +28,7 @@ class RecipeTest < Minitest::Test
   end
 
   def test_ingredients
+    skip
     @recipe1.add_ingredient(@ingredient1, 2)
     @recipe1.add_ingredient(@ingredient1, 4)
     @recipe1.add_ingredient(@ingredient2, 8)
