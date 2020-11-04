@@ -27,26 +27,21 @@ class RecipeTest < Minitest::Test
 
     def test_it_exists_and_has_attributes
 
-        # expected = {}
+        expected = {}
 
         assert_instance_of Recipe, @recipe1
         assert_equal "Mac and Cheese", @recipe1.name
-        assert_equal {}, @recipe1.ingredients_required
+        assert_equal expected, @recipe1.ingredients_required
     end
 
     def test_it_can_add_ingredients
         @recipe1.add_ingredient(@ingredient1, 2)
         @recipe1.add_ingredient(@ingredient1, 4)
         @recipe1.add_ingredient(@ingredient2, 8)
-        
-        expected1 = {@ingredient1, @ingredient2}
-        expected2 = {@ingredient1.name, @ingredient2.name}
-        
+        expected1 = {@ingredient1 => 6, @ingredient2 => 8}
+        expected2 = [@ingredient1, @ingredient2]
         assert_equal expected1, @recipe1.ingredients_required
         assert_equal expected2, @recipe1.ingredients
-
-        @pantry.restock(@ingredient2, 7)
-        assert_equal 7, @pantry.stock_check(@ingredient2)
     end
 
 end
