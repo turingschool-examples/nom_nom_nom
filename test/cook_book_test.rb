@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require './lib/cook_book'
 require './lib/recipe'
 require './lib/ingredient'
+require 'date'
 
 class CookBookTest < MiniTest::Test
 
