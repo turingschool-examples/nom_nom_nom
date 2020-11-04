@@ -20,7 +20,7 @@ class PantryTest < Minitest::Test
     assert_equal expected, @pantry.stock
   end
 
-  def test_it_calls_stock_check
+  def test_stock_check
     assert_equal 0, @pantry.stock_check(@ingredient1)
 
   end
