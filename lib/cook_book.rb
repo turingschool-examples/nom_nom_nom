@@ -16,4 +16,13 @@ class CookBook
       end
     end.flatten.uniq
   end
+
+  def highest_calorie_meal
+    recipes = Hash.new(0)
+    @recipes.map do |recipe|
+      recipe.ingredients.max_by do |ingredient|
+        ingredient.calories 
+      end 
+    end 
+  end
 end
