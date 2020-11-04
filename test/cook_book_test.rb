@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/ingredient'
 require './lib/recipe'
-require './lib/cookbook'
+require './lib/cook_book'
 
 class CookBookTest < Minitest::Test
 
@@ -45,4 +45,9 @@ class CookBookTest < Minitest::Test
 
     assert_equal @recipe2, @cookbook.highest_calorie_meal
   end
+
+  def test_date
+    assert_equal "11-04-2020", @cookbook.date
+  end
+
 end
