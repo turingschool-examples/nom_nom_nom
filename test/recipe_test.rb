@@ -16,7 +16,6 @@ class RecipeTest < Minitest::Test
   end
 
   def test_ingredients_required
-    skip
     assert_equal ({}), @recipe1.ingredients_required
 
     @recipe1.add_ingredient(@ingredient1, 2)
