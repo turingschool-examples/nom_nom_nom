@@ -26,4 +26,20 @@ class CookBook
     def date
         DateTime.now.strftime("%m-%d-%Y")
     end
+
+    def summary
+        summ = []
+        @recipes.each do |recipe|
+            breakdown = {}
+            breakdown[:name] = recipe.name
+            breakdown[:details] = {
+                ingredients: recipe.ingredients.map do |ingredient|
+                    {ingredient: ingredient.name, amount: "#{recipe.ingredients_required[ingredient]} #{ingredient.unit}"}
+                end ,
+                total_calories: recipe.total_calories
+            }
+            summ << breakdown
+        end
+        summ
+    end
 end
