@@ -28,4 +28,18 @@ class CookBook
     creation_date = Time.new(2020, 04, 22) #passed in date to match interaction pattern
     creation_date.strftime("%m-%d-%Y")
   end
+
+  def summary
+    breakdown = {}
+    @recipes.each do |recipe|
+    breakdown[:name] = recipe.name
+    breakdown[:details] = [:ingredients]
+    recipe.ingredients_required.each do |ingredient, amount|
+      breakdown[:details][:ingredient] = ingredient.name
+      breakdown[:details][:amount] = amount
+    end
+    breakdown[:total_calories] = recipe.total_calories
+    end 
+    breakdown
+  end
 end
