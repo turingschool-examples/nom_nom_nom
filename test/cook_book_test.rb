@@ -37,8 +37,6 @@ class CookBookTest < Minitest::Test
 
     @recipe1.add_ingredient(@ingredient2, 8)
 
-    @recipe2 = Recipe.new("Cheese Burger")
-
     @recipe2.add_ingredient(@ingredient1, 2)
 
     @recipe2.add_ingredient(@ingredient3, 4)
@@ -47,13 +45,13 @@ class CookBookTest < Minitest::Test
 
     assert_equal 440, @recipe1.total_calories
 
-    assert_equal 677, @recipe2.total_calories
+    assert_equal 675, @recipe2.total_calories
 
-    @cookbook.add_recipe(recipe1)
+    @cookbook.add_recipe(@recipe1)
 
-    @cookbook.add_recipe(recipe2)
+    @cookbook.add_recipe(@recipe2)
 
     expected = ["Cheese", "Macaroni", "Ground Beef", "Bun"]
-    assert_equal expected,@cookbook.ingredients
+    assert_equal expected, @cookbook.ingredients
   end
 end
