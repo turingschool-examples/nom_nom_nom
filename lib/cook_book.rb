@@ -11,7 +11,7 @@ class CookBook
 
   def ingredients
     @recipes.flat_map do |recipe|
-      recipe.ingredients_required.flat_map do |ingredient, qty|
+      recipe.ingredients.map do |ingredient|
         ingredient.name
       end
     end.uniq
