@@ -16,8 +16,8 @@ class Pantry
   def enough_ingredients_for?(recipe)
     enough = false 
     @stock.each do |ingredient, qty|
-      recipe.ingredients_required.each do |ingd, qtty|
-        if ingredient == ingd && qty >= qtty
+      recipe.ingredients_required.each do |item, quantity|
+        if ingredient == item && qty >= quantity
           enough = true
         else  
           enough = false
