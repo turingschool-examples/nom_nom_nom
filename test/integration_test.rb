@@ -53,4 +53,24 @@ class IntegrationTest < MiniTest::Test
         assert_equal @recipe2, @cookbook.highest_calorie_meal
     end
 
+    def test_pantry_can_check_if_enough_ingredients_for_recipe
+        @recipe1.add_ingredient(@ingredient1, 2)
+        @recipe1.add_ingredient(@ingredient2, 8)
+        @recipe2.add_ingredient(@ingredient1, 2)
+        #recipe1 needs 2 of ingred1, 8 of ingred2
+
+        @pantry.restock(@ingredient1, 5)
+        @pantry.restock(@ingredient1, 10)
+
+        assert_equal false, @pantry.enough_ingredients_for?(@recipe1)
+
+        @pantry.restock(@ingredient2, 7)
+
+        assert_equal false, @pantry.enough_ingredients_for?(@recipe1)
+
+        @pantry.restock(@ingredient2, 1)
+
+        assert_equal true, @pantry.enough_ingredients_for?(@recipe1)
+    end
+
 end
