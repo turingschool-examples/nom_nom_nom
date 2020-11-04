@@ -12,13 +12,10 @@ class Recipe
   def ingredients
     @ingredients_required.keys
   end
-<<<<<<< HEAD
-=======
 
   def total_calories
     ingredients.sum do |ingredient|
       ingredient.calories.to_i * @ingredients_required[ingredient]
     end
   end
->>>>>>> iteration_3
 end
