@@ -26,4 +26,19 @@ class CookBook
       recipe.total_calories
     end
   end
+
+
+  def summary
+    @recipes.map do |recipe|
+      breakdown = {}
+      breakdown[:name] = recipe.name
+      breakdown[:details] = {ingredients: []}
+      recipe.ingredients_required.each do |ingredient, qty|
+        breakdown[:details][:ingredients] << {ingredient: ingredient.name, amount: "#{qty} #{ingredient.unit}"}
+      end
+      breakdown[:total_calories] = recipe.total_calories
+      breakdown[:details][:ingredients].sort_by { |ingredient| ingredient[:amount].to_i }.reverse
+      breakdown
+    end
+  end
 end
