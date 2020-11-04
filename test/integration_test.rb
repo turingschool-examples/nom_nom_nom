@@ -17,7 +17,7 @@ class IntegrationTest < MiniTest::Test
         @ingredient4 = Ingredient.new({name: "Bun", unit: "g", calories: 75})
     end
 
-    def test_it_can_get_total_calories_from_recipe
+    def test_recipe_can_get_total_calories
         @recipe1.add_ingredient(@ingredient1, 2)
         @recipe1.add_ingredient(@ingredient2, 8)
         @recipe2.add_ingredient(@ingredient1, 2)
@@ -28,7 +28,7 @@ class IntegrationTest < MiniTest::Test
         assert_equal 675, @recipe2.total_calories
     end
 
-    def test_it_can_list_all_ingredients_from_recipes
+    def test_cookbook_can_list_all_ingredients_from_recipes
         @recipe1.add_ingredient(@ingredient1, 2)
         @recipe1.add_ingredient(@ingredient2, 8)
         @recipe2.add_ingredient(@ingredient1, 2)
@@ -39,6 +39,10 @@ class IntegrationTest < MiniTest::Test
 
         expected = ["Cheese", "Macaroni", "Ground Beef", "Bun"]
         assert_equal expected, @cookbook.ingredients
+    end
+
+    def test_cookbook_can_find_highest_calorie_meal
+
     end
 
 end
