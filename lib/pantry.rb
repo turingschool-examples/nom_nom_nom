@@ -1,3 +1,5 @@
+require './lib/recipe'
+
 class Pantry
   attr_reader :stock
 
@@ -22,5 +24,16 @@ class Pantry
         old + new
       end
     end
+  end
+
+  def enough_ingredients_for?(recipe) #unfinished
+    enough = []
+    recipe.ingredients_required.each do |requirement|
+      if requirement[recipe.ingredients] <= @stock[ingredient] == true
+        enough << true
+      end
+    end
+      if enough.all?(true)
+      end
   end
 end

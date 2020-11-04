@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/ingredient'
 require "./lib/pantry"
+require './lib/recipe'
 
 class PantryTest < Minitest::Test
   def setup
@@ -34,5 +35,19 @@ class PantryTest < Minitest::Test
 
     assert_equal 15, @pantry.stock_check(@ingredient1)
     assert_equal 7, @pantry.stock_check(@ingredient2)
+  end
+
+  def test_enough_ingredients_for
+
+    @pantry.restock(@ingredient1, 5)
+    @pantry.restock(@ingredient1, 10)
+    @pantry.restock(@ingredient2, 7)
+
+    @recipe1 = Recipe.new("Mac and Cheese")
+
+    @recipe1.add_ingredient(@ingredient1, 6)
+    @recipe1.add_ingredient(@ingredient2, 8)
+
+    assert_equal false, @pantry.enough_ingredients_for?(@recipe1)
   end
 end
