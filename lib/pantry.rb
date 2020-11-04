@@ -1,25 +1,22 @@
 class Pantry
-  attr_reader :stock
+  attr_reader :stock  # => nil
 
   def initialize
     @stock = Hash.new {|hash, key| hash[key] = 0}
-  end
+  end                                              # => :initialize
 
   def stock_check(item)
     @stock[item]
-  end
+  end                    # => :stock_check
 
   def restock(item, quantity)
     @stock[item] += quantity
-  end
+  end                          # => :restock
 
   def enough_ingredients_for?(recipe)
     recipe.ingredients_required.all? do |ingredient, quantity|
-      quantity >= stock_check(ingredient)
+      stock_check(ingredient) >= quantity
     end
-  end
+  end                                                           # => :enough_ingredients_for?
 
-
-
-
-end
+end  # => :enough_ingredients_for?
