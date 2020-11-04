@@ -25,4 +25,10 @@ class Recipe
     end
     total
   end
+
+  def ingredient_names
+    ingredients.flat_map do |ingredient|
+      ingredient.name
+    end
+  end
 end
