@@ -14,4 +14,6 @@ class Recipe
     @ingredients_required.keys
   end
 
+
+
 end
