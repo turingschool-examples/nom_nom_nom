@@ -1,6 +1,7 @@
 require "minitest/autorun"
 require "minitest/pride"
 require "./lib/recipe"
+require "mocha/minitest"
 
 class RecipeTest < Minitest::Test
   def setup
@@ -27,7 +28,7 @@ class RecipeTest < Minitest::Test
     assert_equal Hash.new(), @recipe.ingredients_required
     @recipe.add_ingredient(@ingredient1, 2)
     @recipe.add_ingredient(@ingredient1, 4)
-    @recipe.add_ingredient(@ingredient1, 8)
+    @recipe.add_ingredient(@ingredient2, 8)
     expected = {
       @ingredient1 => 6,
       @ingredient2 => 8
