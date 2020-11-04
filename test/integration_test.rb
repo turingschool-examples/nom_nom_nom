@@ -57,7 +57,6 @@ class IntegrationTest < MiniTest::Test
         @recipe1.add_ingredient(@ingredient1, 2)
         @recipe1.add_ingredient(@ingredient2, 8)
         @recipe2.add_ingredient(@ingredient1, 2)
-        #recipe1 needs 2 of ingred1, 8 of ingred2
 
         @pantry.restock(@ingredient1, 5)
         @pantry.restock(@ingredient1, 10)
@@ -71,6 +70,10 @@ class IntegrationTest < MiniTest::Test
         @pantry.restock(@ingredient2, 1)
 
         assert_equal true, @pantry.enough_ingredients_for?(@recipe1)
+    end
+# Iteration 4 tests
+    def test_cookbook_can_find_date_of_its_creation
+        assert_equal "11-04-2020", @cookbook.date
     end
 
 end
