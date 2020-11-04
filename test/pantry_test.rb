@@ -3,7 +3,7 @@ require 'Minitest/pride'
 require './lib/ingredient'
 require './lib/pantry'
 
-class IngredientTest < Minitest::Test
+class PantryTest < Minitest::Test
     def setup
         @pantry = Pantry.new
         @ingredient1 = Ingredient.new(
