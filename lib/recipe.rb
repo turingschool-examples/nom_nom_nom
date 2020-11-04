@@ -9,7 +9,11 @@ attr_reader :name,
 
   def add_ingredient(ingredient, amount)
     (@ingredients_required[ingredient] += amount if @ingredients_required[ingredient]) ||
-    (@ingredients_required[ingredient] = amount) 
+    (@ingredients_required[ingredient] = amount)
+  end
+
+  def ingredients
+    @ingredients_required.keys
   end
 
 end
