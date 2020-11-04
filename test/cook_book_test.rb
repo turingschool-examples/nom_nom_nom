@@ -47,7 +47,7 @@ class CookBookTest < Minitest::Test
   end
 
   def test_date
-    assert_equal "11-4-2020", @cookbook.date
+    assert_equal "11-04-2020", @cookbook.date
   end
 
   def test_summary
