@@ -12,6 +12,8 @@ class Recipe
       ingredients_required[ingredient] += amount
     elsif ingredient.class == Ingredient
       ingredients_required[ingredient] = amount
+    else
+      "Invalid ingredient!"
     end
   end
 
